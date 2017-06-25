@@ -28,7 +28,8 @@ export class DataStorageService {
     }
 
     fetchData() {
-        this.http.get(this.recipesResource + `?auth=${ this.authService.getToken() }`, { headers: this.headers }).subscribe(
+        //  + `?auth=${ this.authService.getToken() }`
+        this.http.get(this.recipesResource, { headers: this.headers }).subscribe(
             response => {
                 const recipes = response.json() as Recipe[];
                 recipes.forEach(recipe => {
